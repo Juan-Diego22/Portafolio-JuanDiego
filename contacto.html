@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <nav class="navegador">
+        <a href="#home" class="logo">Dev<span>Juan</span></a>
+        <ul class="links">
+            <li><a href="index.html">Hogar</a></li>
+            <li><a href="#habilidades ">Habilidades</a></li>
+            <li><a href="proyecto.html">Proyectos</a></li>
+            <li><a href="contacto.html">Contactos</a></li>
+        </ul>
+    </nav>
+    <section id="contacto" class="seccion-contacto">
+        <div class="contenedor-contacto">
+            <div class="info-contacto">
+                <h2>Ponte en Contacto</h2>
+                <div class="enlaces-contacto">
+                    <a href="mailto:lopezc222@hotmail.com" class="enlace-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>lopezc222@hotmail.com</span>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=+573215160822" class="enlace-item" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>+57 3165441337</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/juan-diego-lopez-carvajal-5079462bb/" class="enlace-item" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Juan-Diego22?tab=repositories" class="enlace-item" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="formulario-contacto">
+                <h2>Envíame un mensaje</h2>
+                <form  method="POST">
+                    <div class="grupo-campos">
+                        <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+                        <input type="email" name="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="grupo-campos">
+                        <input type="tel" name="telefono" placeholder="Número de teléfono">
+                        <input type="text" name="asunto" placeholder="Asunto">
+                    </div>
+                    <textarea class="textarea" name="mensaje" rows="6" placeholder="Mensaje" required></textarea>
+                    <button type="submit" class="boton-enviar">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

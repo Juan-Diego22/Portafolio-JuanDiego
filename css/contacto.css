@@ -1,0 +1,214 @@
+:root{
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --accent: #2ecc71;
+    --accent-glow: rgba(46,204,113,0.4);
+    --text: #ffffff;
+}
+
+body {
+    background-color: var(--darker-bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Sección de Contacto */
+.seccion-contacto {
+    background: var(--dark-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contacto{
+    padding-top: 100px;
+}
+
+.contenedor-contacto {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    gap: 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.info-contacto {
+    padding: 2.8rem;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+
+}
+
+.formulario-contacto{
+    flex: 1;
+    min-width: 300px;
+    max-width: 900px;
+}
+
+.info-contacto h2, .formulario-contacto h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.enlaces-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: 0;
+}
+
+.enlace-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.enlace-item i {
+    font-size: 1.8rem;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.enlace-item span {
+    transition: color 0.3s ease;
+}
+
+.enlace-item:hover {
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.enlace-item:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+.formulario-contacto {
+    
+    position: relative;
+    background: var(--dark-bg);
+    padding: 2.7rem;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 4px var(--accent);
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+    overflow: hidden;
+    
+}
+
+.formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.grupo-campos {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.grupo-campos input {
+    flex: 1;
+    width: 100%;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text);
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.formulario-contacto input::placeholder,
+.formulario-contacto textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.textarea{
+    width: 100%;
+}
+
+.boton-enviar {
+    background: linear-gradient(45deg, var(--accent), #166838);
+    color: var(--dark-bg);
+    border: none;
+    box-shadow: 0 0 6px var(--accent);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-enviar:hover {
+    transform: translateY(-3px);
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .contenedor-contacto {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .info-contacto h2, .info-contacto p {
+        text-align: center;
+    }
+
+    .enlaces-contacto {
+        align-items: center;
+        text-align: left;
+    }
+}
+
+@media (max-width: 500px) {
+    .grupo-campos {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .grupo-campos input {
+        margin-bottom: 1rem;
+    }
+}
