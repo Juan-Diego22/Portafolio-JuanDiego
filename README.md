@@ -1,4 +1,4 @@
 # Portafolio Web Juan Diego Lopez 
 
 
-![Clon de Netflix](screenshorts/netflix.png) 
+![Clon de Netflix](screenshorts/Portafolio.png) 
