@@ -198,6 +198,7 @@ body {
     display: flex;
     gap: 1rem;
     margin-top: auto;
+    position: relative;
 }
 
 .project-btn {
@@ -219,7 +220,18 @@ body {
 .primary-btn:hover {
     background: #25a25a;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px var(--accent-glow);
+    box-shadow: 0 4px 4px var(--accent-glow);
+}
+
+.primary-btn1 {
+    background: var(--accent);
+    color: var(--dark-bg);
+}
+
+.primary-btn1:hover {
+    background: #25a25a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 4px var(--accent-glow);
 }
 
 .secondary-btn {
@@ -231,7 +243,7 @@ body {
 .secondary-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--accent);
-    border-color: var(--accent);
+   
 }
 
 /* Footer */
@@ -255,4 +267,39 @@ footer {
 
 .social-links a:hover {
     color: var(--accent);
+}
+
+
+/* 1. Estilos del Contenedor (solo envuelve al enlace y su tooltip) */
+.contenedor-tooltip {
+  position: relative; 
+  display: inline-block; 
+  margin-right: 20px; /* Separación entre enlaces */
+}
+
+/* 2. Estilos del Tooltip Oculto */
+.texto-tooltip {
+  width: 180px; 
+  background-color: var(--dark-bg);
+  color: var(--text);
+  text-align: center;
+  border-radius: 6px;
+  border: var(--accent) 1px solid;
+  padding: 8px 8px;
+  font-size: 12px;
+  /* Posicionamiento y ocultamiento */
+  visibility: hidden; 
+  opacity: 0; 
+  transition: opacity 0.3s; 
+  
+  position: absolute;
+  z-index: 10;
+  bottom: 125%; 
+  left: 50%;
+  margin-left: -90px; /* Mitad del ancho (180px) para centrarlo */
+}
+
+.contenedor-tooltip:hover .texto-tooltip {
+  visibility: visible; 
+  opacity: 1;
 }
