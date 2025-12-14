@@ -81,14 +81,32 @@ body{
     width: 100%;
 }
 
+/* Hamburguer Button */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--accent);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--text);
+}
+
+/* Estado Activo para móvil */
+.links.active {
+    transform: translateY(0); /* Mueve el menú a la vista */
+    opacity: 1;
+}
+
 /*Hero section*/
 .seccion{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 12% 5%;
-    background: radial-gradient(circle at 73% 50%, var(--accent-glow) 0%, transparent 23%)
-    
+    padding: 12% 5%; 
 }
 
 .contenido{
@@ -108,7 +126,9 @@ body{
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--accent);
-    box-shadow: 0 0 40px var(--accent-glow);
+    box-shadow: 
+        0 0 10px rgba(46, 204, 113, 0.6), /* Sombra inicial */
+        0 0 40px var(--accent-glow); /* Resplandor principal que se moverá */
     animation: float 3s ease-in-out infinite;
     filter: grayscale(0.2) contrast(1.1);
 }
@@ -144,8 +164,8 @@ body{
 
     @keyframes escribir-borrar {
       0%   { width: 0; }
-      40%  { width: 19ch; }  
-      80%  { width: 19ch; }  
+      40%  { width: 15ch; }  
+      80%  { width: 15ch; }  
       100% { width: 0; }     
     }
 
@@ -271,31 +291,150 @@ footer{
     transform: translateY(-3px);
 }
 
-@media (max-width: 768px) {
+/* Media Queries para hacer el sitio Responsive */
+@media (max-width: 1024px) {
+    /* Ajustes generales para tabletas y portátiles pequeños */
+    .navegador {
+        padding: 1.5rem 3%;
+    }
     .seccion {
-        flex-direction: column;
+        padding: 15% 3%;
+    }
+    .imagen {
+        width: 350px;
+        height: 350px;
+    }
+    .seccion h1 {
+        font-size: 3rem;
+    }
+    .seccion h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Diseño principal para móviles y tabletas pequeñas */
+
+    /* NAVEGACIÓN (volver a mostrar y ajustar) */
+    * NAVEGACIÓN */
+    .navegador {
+        display: flex;
+        height: 60px;
+        padding: 1rem 5%;
+        border-bottom: none;
+        box-shadow: 0 1px 4px var(--accent-glow);
+    }
+    
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    .links {
+        /* Ocultar y preparar el menú para la vista móvil */
+        display: flex; 
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        position: fixed;
+        top: 60px; /* Debajo del navegador */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px); /* Ocupa el resto de la pantalla */
+        background: var(--darker-bg); 
+        padding: 2rem 5%;
+        align-items: center;
+        gap: 1.5rem;
+        
+        /* Ocultamiento inicial (fuera de la vista) */
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    /* Mejora la visualización de los enlaces apilados */
+    .links a {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        width: 100%;
         text-align: center;
-        padding-top: 8rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+        padding-left: 0;
+    }
+
+    /* SECCIÓN PRINCIPAL (HERO) */
+    .seccion {
+        flex-direction: column; /* Apilar contenido y foto */
+        text-align: center;
+        padding-top: 6rem; /* Deja espacio para el nav fijo */
+        min-height: auto; /* No forzar la altura de la vista */
     }
 
     .contenido {
         padding-right: 0;
-        margin-top: 3rem;
+        /* Ordenamos el contenido antes de la foto */
+        order: 2; 
+        margin-top: 2rem;
     }
 
-    .imagen{
+    .foto {
+        /* Ordenamos la foto primero */
+        order: 1; 
+        margin-bottom: 2rem;
+    }
+
+    .imagen {
         width: 280px;
         height: 280px;
-        object-fit: cover;
+        box-shadow: 0 0 25px var(--accent-glow);
     }
 
-    .navegador{
-        display: none;
+    .seccion h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
     }
 
-    .logo{
-        font-size: 1.4rem;
-        padding-left: 2rem;
+    .seccion h2 {
+        font-size: 1.5rem;
+        /* Ajustar la animación de tipado para el nuevo tamaño */
+        animation: escribir-borrar 6s steps(22, end) 1.5s infinite,
+                   cursor 0.7s step-end infinite;
+    }
+    
+    .seccion p {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .button {
+        width: 80%; /* Hacer el botón más ancho en móvil */
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+        display: block;
+        margin: 0 auto 1.5rem;
+    }
+
+    .redes { 
+        justify-content: center; /* Centrar los íconos */
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* HABILIDADES */
+    .habilidades {
+        padding: 3rem 5%;
+    }
+    .skill-grid {
+        grid-template-columns: 1fr; /* Una columna por tarjeta */
+    }
+    .skill-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* FOOTER */
+    footer {
+        padding: 2rem 5%;
+    }
+    .social-links {
+        gap: 1.5rem;
     }
 }
-

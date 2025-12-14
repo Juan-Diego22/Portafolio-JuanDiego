@@ -18,38 +18,37 @@
             navegador.style.backgroundColor = 'rgba(10,10,10,0.95)';
     })
 
-    // Custom cursor
-    //  Obtener el elemento del cursor del DOM
-    const cursor = document.querySelector('.cursor');
-    // 2. Variables para almacenar la posición del ratón
-    let mouseX = 0, 
-        mouseY = 0; 
+    // Lógica para el Menú Hamburguesa
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
 
-    // 3. Función principal que mueve el cursor
-    const cursorMove = () => {
-    // Posicionar el cursor con las coordenadas del ratón
-    // Se usa `left` y `top` para la posición
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
+// Función para alternar el menú
+menuToggle.addEventListener('click', () => {
+    // Añade o quita la clase 'active' a los enlaces
+    navLinks.classList.toggle('active');
     
-    // Mueve el cursor -50% de su tamaño para que el centro
-    // del círculo siga la punta del ratón (y no la esquina superior izquierda)
-    cursor.style.transform = 'translate(-50%, -50%)'; 
-
-    // Solicita la siguiente animación de fotograma, lo que crea un bucle suave
-    requestAnimationFrame(cursorMove);
+    // Opcional: Cambiar el ícono (hamburguesa <-> X)
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars'); // Quita el ícono de barras
+        icon.classList.add('fa-times'); // Pone el ícono de la "X"
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
     }
+});
 
-    // Iniciar el bucle de animación
-    cursorMove();
-
-    // Listener para capturar la posición del ratón en tiempo real
-    document.addEventListener('mousemove', (e) => {
-    // `e.clientX` y `e.clientY` obtienen la posición actual del ratón
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
+// Cierre automático del menú al hacer clic en un enlace (en móvil)
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('active');
+            // Restaura el ícono a barras
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
-
+});
 
 

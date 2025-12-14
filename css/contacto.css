@@ -183,8 +183,69 @@ body {
     transform: translateY(-3px);
 }
 
-/* Media Queries para responsividad */
+/* Hamburguer Button */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--accent);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--text);
+}
+
+/* Estado Activo para móvil */
+.links.active {
+    transform: translateY(0) !important; 
+    opacity: 1 !important;
+}
+
+/* ... (Resto de tu CSS) ... */
+
 @media (max-width: 768px) {
+    /* NAVEGACIÓN AÑADIDA */
+    .navegador {
+        height: 60px;
+        padding: 1rem 5%;
+        box-shadow: 0 1px 4px rgba(45, 175, 110, 0.5);
+    }
+    
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    .links {
+        /* Ocultar y preparar el menú para la vista móvil */
+        display: flex; 
+        flex-direction: column; 
+        position: fixed;
+        top: 60px; /* Debajo del navegador */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: var(--darker-bg); 
+        padding: 2rem 5%;
+        align-items: center;
+        gap: 1.5rem;
+        
+        /* Ocultamiento inicial (fuera de la vista) */
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    .links a {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    /* FIN NAVEGACIÓN AÑADIDA */
+
+
     .contenedor-contacto {
         flex-direction: column;
         align-items: center;
@@ -199,16 +260,5 @@ body {
     .enlaces-contacto {
         align-items: center;
         text-align: left;
-    }
-}
-
-@media (max-width: 500px) {
-    .grupo-campos {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .grupo-campos input {
-        margin-bottom: 1rem;
     }
 }

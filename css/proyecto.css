@@ -303,3 +303,116 @@ footer {
   visibility: visible; 
   opacity: 1;
 }
+
+/* Hamburguer Button */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--accent);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover {
+    color: var(--text);
+}
+
+/* Estado Activo para móvil */
+.links.active {
+    transform: translateY(0) !important; /* Importante para anular la transformación inicial */
+    opacity: 1 !important;
+}
+
+
+@media (max-width: 768px) {
+    
+    /* 1. NAVEGACIÓN (Implementando el menú hamburguesa) */
+    .navegador {
+        height: 60px;
+        padding: 1rem 5%;
+        box-shadow: 0 1px 4px rgba(45, 175, 110, 0.5); /* Sombra más suave */
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+        font-size: 1.8rem;
+    }
+
+    .links {
+        /* Ocultar y preparar el menú para la vista móvil */
+        display: flex; 
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        position: fixed;
+        top: 60px; /* Debajo del navegador */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px); /* Ocupa el resto de la pantalla */
+        background: var(--darker-bg); 
+        padding: 2rem 5%;
+        align-items: center;
+        gap: 1.5rem;
+        
+        /* Ocultamiento inicial (fuera de la vista) */
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    /* Estado Activo para móvil (para que JS lo muestre) */
+    .links.active {
+        transform: translateY(0); 
+        opacity: 1;
+    }
+
+    /* Mejora la visualización de los enlaces apilados */
+    .links a {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 2. SECCIÓN DE PROYECTOS */
+    .projects-section {
+        padding-top: 80px; /* Ajusta el padding para la barra de navegación más pequeña */
+        padding-bottom: 40px;
+    }
+
+    .projects-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* El project-grid ya es responsive con auto-fit, pero aseguramos la columna única */
+    .project-grid {
+        grid-template-columns: 1fr; /* Una columna por tarjeta en móvil */
+        gap: 2rem;
+    }
+    
+    .project-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-links {
+        flex-direction: column; /* Apila los botones de link */
+    }
+    
+    .project-btn {
+        width: 100%; /* Botones de ancho completo */
+        justify-content: center; /* Centra el contenido del botón */
+        font-size: 0.95rem;
+    }
+    
+    /* 3. FOOTER */
+    footer {
+        padding: 1.5rem 5%;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+}
