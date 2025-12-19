@@ -1,6 +1,6 @@
 # Portafolio Web Juan Diego Lopez 
 
-**Live Demo**: [Click here to visit portfolio!](https://portafolio-terminal2203-git-main-dreamers-projects-10880b7e.vercel.app/)
+**Live Demo**: [Click here to visit portfolio!](https://juan-diego22.github.io/Portafolio-JuanDiego/)
 
 
 ![Portafolio](screenshorts/portafolio.png) 
