@@ -262,3 +262,69 @@ body {
         text-align: left;
     }
 }
+
+/* --- Estilos para la página de Gracias --- */
+
+.seccion-gracias {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4; /* O el color de fondo oscuro que uses en tu portfolio */
+    text-align: center;
+    padding: 20px;
+}
+
+.tarjeta-gracias {
+    background: white; /* Cambia esto si tu tema es oscuro (ej: #1e1e1e) */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.icono-exito {
+    font-size: 80px;
+    color: #28a745; /* Verde éxito */
+    margin-bottom: 20px;
+    animation: popUp 0.5s ease-out; /* Una pequeña animación de entrada */
+}
+
+.tarjeta-gracias h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333; /* Cambiar a blanco si es tema oscuro */
+}
+
+.tarjeta-gracias p {
+    font-size: 1.1rem;
+    color: #666; /* Cambiar a gris claro si es tema oscuro */
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.boton-volver {
+    background: linear-gradient(45deg, var(--accent), #166838);
+    color: var(--dark-bg);
+    border: none;
+    box-shadow: 0 0 6px var(--accent);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton-volver:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Animación simple para el icono */
+@keyframes popUp {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
